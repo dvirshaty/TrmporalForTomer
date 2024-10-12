@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+management:
+  endpoint:
+    health:
+      show-details: "ALWAYS"
+    web:
+      exposure:
+        include: "*"
+spring:
+  application:
+    name: temporal-demo
+  temporal:
+    connection:
+      target: 127.0.0.1:7233
+      target.namespace: default
+    workers:
+      - task-queue: "TaskQueue"
+    workersAutoDiscovery:
+      packages: com.dvir.temporal.poc
+
+
